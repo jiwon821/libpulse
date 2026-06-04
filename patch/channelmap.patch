@@ -1,0 +1,11 @@
+--- ./pulseaudio-17.0/src/pulse/channelmap.h	2024-01-12 19:22:09.000000000 +0200
++++ ./pulse/channelmap.h	2026-06-04 20:27:52.523940530 +0300
+@@ -284,7 +284,7 @@
+  * channels using default labels and return a pointer to it. This call
+  * will fail (return NULL) if there is no default channel map known for this
+  * specific number of channels and mapping. */
+-pa_channel_map* pa_channel_map_init_auto(pa_channel_map *m, unsigned channels, pa_channel_map_def_t def);
++typedef pa_channel_map* (__cdecl *pa_channel_map_init_auto)(pa_channel_map *m, unsigned channels, pa_channel_map_def_t def);
+ 
+ /** Similar to pa_channel_map_init_auto() but instead of failing if no
+  * default mapping is known with the specified parameters it will

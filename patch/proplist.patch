@@ -1,0 +1,42 @@
+--- ./pulseaudio-17.0/src/pulse/proplist.h	2024-01-12 19:22:09.000000000 +0200
++++ ./pulse/proplist.h	2026-06-04 20:57:14.675920360 +0300
+@@ -278,10 +278,10 @@
+ typedef struct pa_proplist pa_proplist;
+ 
+ /** Allocate a property list. Free with pa_proplist_free. \since 0.9.11 */
+-pa_proplist* pa_proplist_new(void);
++typedef pa_proplist* (__cdecl *pa_proplist_new)(void);
+ 
+ /** Free the property list. \since 0.9.11 */
+-void pa_proplist_free(pa_proplist* p);
++typedef void (__cdecl *pa_proplist_free)(pa_proplist* p);
+ 
+ /** Returns a non-zero value if the key is valid. \since 3.0 */
+ int pa_proplist_key_valid(const char *key);
+@@ -290,7 +290,7 @@
+  * overwriting an already existing entry with the same key. An
+  * internal copy of the data passed is made. Will accept only valid
+  * UTF-8. Returns zero on success. \since 0.9.11 */
+-int pa_proplist_sets(pa_proplist *p, const char *key, const char *value);
++typedef int (__cdecl *pa_proplist_sets)(pa_proplist *p, const char *key, const char *value);
+ 
+ /** Append a new string entry to the property list, possibly
+  * overwriting an already existing entry with the same key. An
+@@ -298,7 +298,7 @@
+  * UTF-8. The string passed in must contain a '='. Left hand side of
+  * the '=' is used as key name, the right hand side as string
+  * data. Returns zero on success. \since 0.9.16 */
+-int pa_proplist_setp(pa_proplist *p, const char *pair);
++typedef int (__cdecl *pa_proplist_setp)(pa_proplist *p, const char *pair);
+ 
+ /** Append a new string entry to the property list, possibly
+  * overwriting an already existing entry with the same key. An
+@@ -311,7 +311,7 @@
+  * overwriting an already existing entry with the same key. An
+  * internal copy of the data passed is made.
+  * Returns zero on success. \since 0.9.11 */
+-int pa_proplist_set(pa_proplist *p, const char *key, const void *data, size_t nbytes);
++typedef int (__cdecl *pa_proplist_set)(pa_proplist *p, const char *key, const void *data, size_t nbytes);
+ 
+ /** Return a string entry for the specified key. Will return NULL if
+  * the data is not valid UTF-8. Will return a NUL-terminated string in

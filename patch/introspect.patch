@@ -1,0 +1,20 @@
+--- ./pulseaudio-17.0/src/pulse/introspect.h	2024-01-12 19:22:09.000000000 +0200
++++ ./pulse/introspect.h	2026-06-04 20:35:21.811935387 +0300
+@@ -668,7 +668,7 @@
+ typedef void (*pa_sink_input_info_cb_t) (pa_context *c, const pa_sink_input_info *i, int eol, void *userdata);
+ 
+ /** Get some information about a sink input by its index */
+-pa_operation* pa_context_get_sink_input_info(pa_context *c, uint32_t idx, pa_sink_input_info_cb_t cb, void *userdata);
++typedef pa_operation* (__cdecl *pa_context_get_sink_input_info)(pa_context *c, uint32_t idx, pa_sink_input_info_cb_t cb, void *userdata);
+ 
+ /** Get the complete sink input list */
+ pa_operation* pa_context_get_sink_input_info_list(pa_context *c, pa_sink_input_info_cb_t cb, void *userdata);
+@@ -680,7 +680,7 @@
+ pa_operation* pa_context_move_sink_input_by_index(pa_context *c, uint32_t idx, uint32_t sink_idx, pa_context_success_cb_t cb, void* userdata);
+ 
+ /** Set the volume of a sink input stream */
+-pa_operation* pa_context_set_sink_input_volume(pa_context *c, uint32_t idx, const pa_cvolume *volume, pa_context_success_cb_t cb, void *userdata);
++typedef pa_operation* (__cdecl *pa_context_set_sink_input_volume)(pa_context *c, uint32_t idx, const pa_cvolume *volume, pa_context_success_cb_t cb, void *userdata);
+ 
+ /** Set the mute switch of a sink input stream \since 0.9.7 */
+ pa_operation* pa_context_set_sink_input_mute(pa_context *c, uint32_t idx, int mute, pa_context_success_cb_t cb, void *userdata);

@@ -1,0 +1,48 @@
+--- ./pulseaudio-17.0/src/pulse/volume.h	2024-01-12 19:22:09.000000000 +0200
++++ ./pulse/volume.h	2026-06-04 20:33:26.863936703 +0300
+@@ -150,12 +150,12 @@
+ /** Return non-zero when *a == *b, checking that both a and b
+  * have the same number of channels and that the volumes of
+  * channels in a equal those in b. */
+-int pa_cvolume_equal(const pa_cvolume *a, const pa_cvolume *b) PA_GCC_PURE;
++typedef int (__cdecl *pa_cvolume_equal)(const pa_cvolume *a, const pa_cvolume *b) PA_GCC_PURE;
+ 
+ /** Initialize the specified volume and return a pointer to
+  * it. The sample spec will have a defined state but
+  * pa_cvolume_valid() will fail for it. \since 0.9.13 */
+-pa_cvolume* pa_cvolume_init(pa_cvolume *a);
++typedef pa_cvolume* (__cdecl *pa_cvolume_init)(pa_cvolume *a);
+ 
+ /** Set the volume of the first n channels to PA_VOLUME_NORM */
+ #define pa_cvolume_reset(a, n) pa_cvolume_set((a), (n), PA_VOLUME_NORM)
+@@ -164,7 +164,7 @@
+ #define pa_cvolume_mute(a, n) pa_cvolume_set((a), (n), PA_VOLUME_MUTED)
+ 
+ /** Set the volume of the specified number of channels to the volume v */
+-pa_cvolume* pa_cvolume_set(pa_cvolume *a, unsigned channels, pa_volume_t v);
++typedef pa_cvolume* (__cdecl *pa_cvolume_set)(pa_cvolume *a, unsigned channels, pa_volume_t v);
+ 
+ /** Maximum length of the strings returned by
+  * pa_cvolume_snprint(). Please note that this value can change with
+@@ -260,7 +260,7 @@
+ pa_volume_t pa_cvolume_min_mask(const pa_cvolume *a, const pa_channel_map *cm, pa_channel_position_mask_t mask) PA_GCC_PURE;
+ 
+ /** Return non-zero when the passed cvolume structure is valid */
+-int pa_cvolume_valid(const pa_cvolume *v) PA_GCC_PURE;
++typedef int (__cdecl *pa_cvolume_valid)(const pa_cvolume *v) PA_GCC_PURE;
+ 
+ /** Return non-zero if the volume of all channels is equal to the specified value */
+ int pa_cvolume_channels_equal_to(const pa_cvolume *a, pa_volume_t v) PA_GCC_PURE;
+@@ -306,10 +306,10 @@
+ pa_cvolume *pa_sw_cvolume_divide_scalar(pa_cvolume *dest, const pa_cvolume *a, pa_volume_t b);
+ 
+ /** Convert a decibel value to a volume (amplitude, not power). This is only valid for software volumes! */
+-pa_volume_t pa_sw_volume_from_dB(double f) PA_GCC_CONST;
++typedef pa_volume_t (__cdecl *pa_sw_volume_from_dB)(double f) PA_GCC_CONST;
+ 
+ /** Convert a volume to a decibel value (amplitude, not power). This is only valid for software volumes! */
+-double pa_sw_volume_to_dB(pa_volume_t v) PA_GCC_CONST;
++typedef double (__cdecl *pa_sw_volume_to_dB)(pa_volume_t v) PA_GCC_CONST;
+ 
+ /** Convert a linear factor to a volume. 0.0 and less is muted while
+  * 1.0 is PA_VOLUME_NORM. This is only valid for software volumes! */

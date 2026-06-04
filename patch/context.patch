@@ -1,0 +1,57 @@
+--- ./pulseaudio-17.0/src/pulse/context.h	2024-01-12 19:22:09.000000000 +0200
++++ ./pulse/context.h	2026-06-04 21:12:29.115909893 +0300
+@@ -174,29 +174,29 @@
+ /** Instantiate a new connection context with an abstract mainloop API
+  * and an application name, and specify the initial client property
+  * list. \since 0.9.11 */
+-pa_context *pa_context_new_with_proplist(pa_mainloop_api *mainloop, const char *name, const pa_proplist *proplist);
++typedef pa_context* (__cdecl *pa_context_new_with_proplist)(pa_mainloop_api *mainloop, const char *name, const pa_proplist *proplist);
+ 
+ /** Decrease the reference counter of the context by one */
+-void pa_context_unref(pa_context *c);
++typedef void (__cdecl *pa_context_unref)(pa_context *c);
+ 
+ /** Increase the reference counter of the context by one */
+-pa_context* pa_context_ref(pa_context *c);
++typedef pa_context* (__cdecl *pa_context_ref)(pa_context *c);
+ 
+ /** Set a callback function that is called whenever the context status changes */
+-void pa_context_set_state_callback(pa_context *c, pa_context_notify_cb_t cb, void *userdata);
++typedef void (__cdecl *pa_context_set_state_callback)(pa_context *c, pa_context_notify_cb_t cb, void *userdata);
+ 
+ /** Set a callback function that is called whenever a meta/policy
+  * control event is received. \since 0.9.15 */
+-void pa_context_set_event_callback(pa_context *p, pa_context_event_cb_t cb, void *userdata);
++typedef void (__cdecl *pa_context_set_event_callback)(pa_context *p, pa_context_event_cb_t cb, void *userdata);
+ 
+ /** Return the error number of the last failed operation */
+-int pa_context_errno(const pa_context *c);
++typedef int (__cdecl *pa_context_errno)(const pa_context *c);
+ 
+ /** Return non-zero if some data is pending to be written to the connection */
+-int pa_context_is_pending(const pa_context *c);
++typedef int (__cdecl *pa_context_is_pending)(const pa_context *c);
+ 
+ /** Return the current context status */
+-pa_context_state_t pa_context_get_state(const pa_context *c);
++typedef pa_context_state_t (__cdecl *pa_context_get_state)(const pa_context *c);
+ 
+ /** Connect the context to the specified server. If server is NULL,
+  * connect to the default server. This routine may but will not always
+@@ -207,13 +207,13 @@
+  * specified in the structure are used when forking a new child
+  * process. Returns negative on certain errors such as invalid state
+  * or parameters. */
+-int pa_context_connect(pa_context *c, const char *server, pa_context_flags_t flags, const pa_spawn_api *api);
++typedef int (__cdecl *pa_context_connect)(pa_context *c, const char *server, pa_context_flags_t flags, const pa_spawn_api *api);
+ 
+ /** Terminate the context connection immediately */
+-void pa_context_disconnect(pa_context *c);
++typedef void (__cdecl *pa_context_disconnect)(pa_context *c);
+ 
+ /** Drain the context. If there is nothing to drain, the function returns NULL */
+-pa_operation* pa_context_drain(pa_context *c, pa_context_notify_cb_t cb, void *userdata);
++typedef pa_operation* (__cdecl *pa_context_drain)(pa_context *c, pa_context_notify_cb_t cb, void *userdata);
+ 
+ /** Tell the daemon to exit. The returned operation is unlikely to
+  * complete successfully, since the daemon probably died before
