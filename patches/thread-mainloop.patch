@@ -1,4 +1,4 @@
---- ./pulse/thread-mainloop.h	2024-01-12 19:22:09.000000000 +0200
+--- ./build/pulse/thread-mainloop.h	2024-01-12 19:22:09.000000000 +0200
 +++ ./work/thread-mainloop.h	2026-06-04 21:21:37.827903612 +0300
 @@ -250,19 +250,19 @@
  /** Allocate a new threaded main loop object. You have to call

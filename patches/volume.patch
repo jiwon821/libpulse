@@ -1,4 +1,4 @@
---- ./pulse/volume.h	2024-01-12 19:22:09.000000000 +0200
+--- ./build/pulse/volume.h	2024-01-12 19:22:09.000000000 +0200
 +++ ./work/volume.h	2026-06-04 20:33:26.863936703 +0300
 @@ -150,12 +150,12 @@
  /** Return non-zero when *a == *b, checking that both a and b

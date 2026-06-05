@@ -1,4 +1,4 @@
---- ./pulse/channelmap.h	2024-01-12 19:22:09.000000000 +0200
+--- ./build/pulse/channelmap.h	2024-01-12 19:22:09.000000000 +0200
 +++ ./work/channelmap.h	2026-06-04 20:27:52.523940530 +0300
 @@ -284,7 +284,7 @@
   * channels using default labels and return a pointer to it. This call
