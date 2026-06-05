@@ -1,5 +1,5 @@
---- ./pulseaudio-17.0/src/pulse/operation.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/operation.h	2026-06-04 20:58:06.391919768 +0300
+--- ./pulse/operation.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/operation.h	2026-06-04 20:58:06.391919768 +0300
 @@ -36,20 +36,20 @@
  typedef void (*pa_operation_notify_cb_t) (pa_operation *o, void *userdata);
  

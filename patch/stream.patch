@@ -1,5 +1,5 @@
---- ./pulseaudio-17.0/src/pulse/stream.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/stream.h	2026-06-04 21:19:47.391904876 +0300
+--- ./pulse/stream.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/stream.h	2026-06-04 21:19:47.391904876 +0300
 @@ -308,7 +308,7 @@
  /** Create a new, unconnected stream with the specified name and
   * sample type. It is recommended to use pa_stream_new_with_proplist()

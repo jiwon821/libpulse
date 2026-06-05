@@ -1,5 +1,5 @@
---- ./pulseaudio-17.0/src/pulse/introspect.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/introspect.h	2026-06-04 20:35:21.811935387 +0300
+--- ./pulse/introspect.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/introspect.h	2026-06-04 20:35:21.811935387 +0300
 @@ -668,7 +668,7 @@
  typedef void (*pa_sink_input_info_cb_t) (pa_context *c, const pa_sink_input_info *i, int eol, void *userdata);
  

@@ -1,6 +1,16 @@
---- ./pulseaudio-17.0/src/pulse/sample.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/sample.h	2026-06-04 21:12:58.883909552 +0300
-@@ -280,13 +280,13 @@
+--- ./pulse/sample.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/sample.h	2026-06-05 17:06:58.327920922 +0300
+@@ -23,7 +23,9 @@
+ 
+ #include <inttypes.h>
+ #include <sys/types.h>
++#ifndef _MSC_VER
+ #include <sys/param.h>
++#endif
+ 
+ #include <pulse/gccmacro.h>
+ #include <pulse/cdecl.h>
+@@ -280,13 +282,13 @@
  /** Calculate the time it would take to play a buffer of the specified
   * size with the specified sample type. The return value will always
   * be rounded down for non-integral return values. */

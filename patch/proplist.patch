@@ -1,5 +1,5 @@
---- ./pulseaudio-17.0/src/pulse/proplist.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/proplist.h	2026-06-04 20:57:14.675920360 +0300
+--- ./pulse/proplist.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/proplist.h	2026-06-04 20:57:14.675920360 +0300
 @@ -278,10 +278,10 @@
  typedef struct pa_proplist pa_proplist;
  

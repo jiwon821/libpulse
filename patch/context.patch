@@ -1,5 +1,5 @@
---- ./pulseaudio-17.0/src/pulse/context.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/context.h	2026-06-04 21:12:29.115909893 +0300
+--- ./pulse/context.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/context.h	2026-06-04 21:12:29.115909893 +0300
 @@ -174,29 +174,29 @@
  /** Instantiate a new connection context with an abstract mainloop API
   * and an application name, and specify the initial client property

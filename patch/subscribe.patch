@@ -1,5 +1,5 @@
---- ./pulseaudio-17.0/src/pulse/subscribe.h	2024-01-12 19:22:09.000000000 +0200
-+++ ./pulse/subscribe.h	2026-06-04 20:32:41.779937219 +0300
+--- ./pulse/subscribe.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/subscribe.h	2026-06-04 20:32:41.779937219 +0300
 @@ -73,10 +73,10 @@
  typedef void (*pa_context_subscribe_cb_t)(pa_context *c, pa_subscription_event_type_t t, uint32_t idx, void *userdata);
  
