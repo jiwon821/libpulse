@@ -1,0 +1,12 @@
+--- ./build/pulse/mainloop-api.h	2024-01-12 19:22:09.000000000 +0200
++++ ./work/mainloop-api.h	2026-06-15 21:50:15.484138998 +0300
+@@ -21,7 +21,9 @@
+   License along with PulseAudio; if not, see <http://www.gnu.org/licenses/>.
+ ***/
+ 
++#ifndef _MSC_VER
+ #include <sys/time.h>
++#endif
+ 
+ #include <pulse/cdecl.h>
+ #include <pulse/version.h>
